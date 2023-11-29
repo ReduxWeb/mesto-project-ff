@@ -79,8 +79,8 @@ popups.forEach((popup) => {
 });
 
 //Кнопка закрытия popup
-buttonsClose.forEach((card) => {
-  card.addEventListener("click", (evt) => {
+buttonsClose.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
     const openPopup = evt.target.closest(".popup");
     closeModal(openPopup);
   });
