@@ -8,7 +8,7 @@ const closeModal = (popup) => {
   document.removeEventListener("keydown", closeEsc);
 };
 
-// Зактрытие модалки при нажатие кнопки ESC
+// Закрытие модалки при нажатие кнопки ESC
 const closeEsc = (evt) => {
   if (evt.key === "Escape") {
     const openPopup = document.querySelector(".popup_is-opened");
