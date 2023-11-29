@@ -36,12 +36,10 @@ const cardNameInput = addCardForm.elements["place-name"];
 const cardLinkInput = addCardForm.elements.link;
 
 //Default value text
-const profileEditFormValue = () => {
+const fillPopupProfileEditFormValues = () => {
   if (profileEditPopup.classList.contains("popup_is-opened")) {
     nameInput.value = userName.textContent;
     descriptionInput.value = description.textContent;
-  } else {
-    profileEditForm.reset();
   }
 };
 
@@ -64,19 +62,19 @@ const showImageModal = (card) => {
 //Функция для добавления новых карточек
 const addCard = (evt) => {
   evt.preventDefault();
-  const card = {};
-  card.name = cardNameInput.value;
-  card.link = cardLinkInput.value;
+  const card = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  };
   const newAddCard = createCard(card, deleteCard, cardLike, showImageModal);
   cardList.prepend(newAddCard);
   closeModal(addCardPopup);
-  addCardForm.reset();
 };
 
 // Закрытия popup при клике на фон
-popups.forEach((card) => {
-  card.addEventListener("click", (evt) => {
-    closeModalBackdrop(evt, card);
+popups.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    closeModalBackdrop(evt, popup);
   });
 });
 
@@ -85,14 +83,13 @@ buttonsClose.forEach((card) => {
   card.addEventListener("click", (evt) => {
     const openPopup = evt.target.closest(".popup");
     closeModal(openPopup);
-    addCardForm.reset();
   });
 });
 
 // Popups для редактирования профиля
 profileEditButton.addEventListener("click", () => {
   openModal(profileEditPopup);
-  profileEditFormValue();
+  fillPopupProfileEditFormValues();
 });
 
 //Отправка формы редактировния профиля
@@ -100,6 +97,7 @@ profileEditForm.addEventListener("submit", editProfileForm);
 
 // Popups для Добавление карточек
 addCardButton.addEventListener("click", () => {
+  addCardForm.reset();
   openModal(profileAddPopup);
 });
 
