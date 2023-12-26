@@ -20,7 +20,9 @@ const createCard = (card, deleteCard, cardLike, showImageModal, userId) => {
   cardItem.dataset.ownerId = card.owner._id;
   cardTitle.textContent = card.name;
   cardImage.alt = card.name;
-  cardImage.src = card.link ? card.link : "images/unnamed.jpg";
+  cardImage.src = card.link
+    ? card.link
+    : "https://avatars.mds.yandex.net/get-marketpic/8963057/pic276d0794daf3a27750b100cb44e24150/orig";
   cardImageError(cardImage, showImageModal, card);
   cardbuttonLike.addEventListener("click", () => {
     cardLike(card._id, cardbuttonLike, cardLikeCount);
@@ -62,11 +64,12 @@ const cardLike = (cardId, cardbuttonLike, cardLikeCount) => {
 
 const cardImageError = (cardImage, showImageModal, card) => {
   cardImage.onerror = () => {
-    cardImage.src = "images/unnamed.jpg";
+    cardImage.src =
+      "https://avatars.mds.yandex.net/get-marketpic/8963057/pic276d0794daf3a27750b100cb44e24150/orig";
     cardImage.addEventListener("click", () => {
       const errorImage = {
         name: card.name,
-        link: "images/unnamed.jpg",
+        link: "https://avatars.mds.yandex.net/get-marketpic/8963057/pic276d0794daf3a27750b100cb44e24150/orig",
       };
       showImageModal(errorImage);
     });
