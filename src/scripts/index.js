@@ -196,7 +196,6 @@ const handleProfileUpdate = async (evt) => {
     })
     .finally(() => {
       renderLoadingButton(false, buttonPopup);
-      console.log("обновление профиля");
     });
 };
 
@@ -215,7 +214,6 @@ const handleAvatarUpdate = async (evt) => {
     })
     .finally(() => {
       renderLoadingButton(false, avatarButton);
-      console.log("обновление аватарки");
     });
 };
 
