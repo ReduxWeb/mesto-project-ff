@@ -24,3 +24,4 @@
 - NPM
 
 Ссылка на Github: https://github.com/ReduxWeb/mesto-project-ff
+Ссылка на Github page: https://reduxweb.github.io/mesto-project-ff/
