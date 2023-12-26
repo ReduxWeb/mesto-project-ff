@@ -204,7 +204,6 @@ const handleAvatarUpdate = async (evt) => {
   renderLoadingButton(true, avatarButton);
   updateAvatar(avatarForm.link.value)
     .then((updatedProfile) => {
-      console.log(updatedProfile);
       fillProfileInfo(updatedProfile);
       clearValidation(popupNewAvatar, configValidation);
       closeModal(updateAvatarPopup);
